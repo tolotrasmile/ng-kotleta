@@ -24,12 +24,12 @@ export class UserComponent implements OnInit {
     })
   }
 
-  private viewPost (user: User) {
+  viewPost (user: User) {
     this.selectedUser = user
     this.userService.onChangeUser(user)
   }
 
-  private getStyle (user: User): String {
+  getStyle (user: User): String {
     const style = 'list-group-item list-group-item-action flex-column align-items-start '
     return style + (this.selectedUser === user ? 'active' : '')
   }
