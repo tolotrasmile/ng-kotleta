@@ -19,8 +19,9 @@ export class PostsListComponent implements OnInit {
   ngOnInit () {
     this.userService.userSubject$.subscribe(
       user => {
+        this.posts = []
+        this.user = user
         this.userService.getPostsByUser(user).subscribe((posts: Post[]) => {
-          this.user = user
           this.posts = posts
         })
       })
