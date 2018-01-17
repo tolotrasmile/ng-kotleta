@@ -22,6 +22,8 @@ export class UsersListComponent implements OnInit {
       }
       return this.users = users
     })
+
+    this.userService.userSubject$.subscribe(user => this.selectedUser = user)
   }
 
   viewPost (user: User) {

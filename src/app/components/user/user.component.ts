@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'
-import { UserService } from '../../services/user.service'
+import { Component, Input, OnInit } from '@angular/core'
 import { User } from '../../classes/user'
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-user',
@@ -9,8 +9,21 @@ import { User } from '../../classes/user'
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: User
+  @Input() active: Boolean
 
-  ngOnInit() {
+  constructor (private service: UserService) {
+  }
+
+  ngOnInit () {
+  }
+
+  clickUser () {
+    this.service.onChangeUser(this.user)
+  }
+
+  getStyle (): String {
+    const style = 'list-group-item list-group-item-action flex-column align-items-start '
+    return style + (this.active ? 'active' : '')
   }
 }

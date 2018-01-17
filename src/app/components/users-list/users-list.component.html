@@ -1,9 +1,5 @@
 <div class="list-group">
-  <a href="#" *ngFor="let user of users" (click)="viewPost(user)" [class]="getStyle(user)">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ user.name }}</h5>
-    </div>
-    <p class="mb-1">{{ user.username }}</p>
-    <small>{{ user.phone }}</small>
-  </a>
+  <div *ngFor="let item of users">
+    <app-user [user]="item" [active]="selectedUser === item"></app-user>
+  </div>
 </div>

@@ -1,0 +1,7 @@
+.user-item {
+  border-radius: 0;
+}
+
+.list-group-item {
+  border-radius: 0 !important;
+}
